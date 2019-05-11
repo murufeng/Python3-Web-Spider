@@ -1,7 +1,6 @@
 import time
 from selenium import webdriver
 
-
 def login():
     acount_num = input('请输入账号:\n')
     passwd_str = input('请输入密码:\n')

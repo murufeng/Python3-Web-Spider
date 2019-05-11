@@ -16,7 +16,6 @@ def get_one_page(url):
 def parse_one_page(html):
 	pattern = re.compile(
 		'<dd>.*?board-index.*?>(.*?)</i>.*?data-src="(.*?)".*?name.*?a.*?>(.*?)</a>.*?star.*?>(.*?)</p>.*?releasetime.*?>(.*?)</p>.*?integer.*?>(.*?)</i>.*?fraction.*?>(.*?)</i>.*?</dd>',re.S)
-	''''打印出来比较散乱'''
 	#item = re.findall(pattern,html)
 	#print(item)
 

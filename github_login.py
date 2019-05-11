@@ -1,7 +1,6 @@
 import requests
 from lxml import etree
 
-
 class Login(object):
 
     def __init__(self, email, password):

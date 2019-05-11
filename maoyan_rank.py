@@ -38,17 +38,6 @@ def write_to_file(content):
 		print(type(json.dumps(content)))
 		f.write(json.dumps(content,ensure_ascii=False)+'\n')
 
-#整合代码  爬取一页
-'''def main():
-	url = 'https://maoyan.com/board/4'
-	html = get_one_page(url)
-	#print(html)
-	for item in parse_one_page(html):
-		write_to_file(item)
-
-main()
-'''
-
 #爬取多页，分页爬取
 def main(offset):
 	url = 'https://maoyan.com/board/4?offset='+str(offset)

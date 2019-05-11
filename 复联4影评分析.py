@@ -13,6 +13,12 @@
 import requests
 import pandas as pd
 
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+import jieba
+import matplotlib.pyplot as plt
+from pyecharts import Pie
+from pyecharts import Bar
+from pyecharts import Bar3D
 
 base_url = "http://m.maoyan.com/mmdb/comments/movie/248172.json?_v_=yes&offset="
 
@@ -66,7 +72,6 @@ df = df.drop_duplicates(subset=["id"])
 df.head()
 
 
-
 # 保存抓取数据，方便后续使用。
 df.to_csv("复仇者联盟影评_1000.csv", index=False)
 df = pd.read_csv("复仇者联盟影评_1000.csv", encoding="gbk")
@@ -74,9 +79,6 @@ df.head()
 
 
 # ## 性别分析
-
-
-from pyecharts import Pie
 
 # 求出不同性别出现的次数
 gender_count = df.gender.value_counts().to_dict()
@@ -87,10 +89,6 @@ pie
 
 
 # ## 评分分布
-
-
-
-from pyecharts import Bar
 
 # 求出不同评分出现的次数
 score_count = df.score.value_counts().sort_index()
@@ -103,8 +101,6 @@ bar
 
 
 # ## 不同性别评分的差异
-
-
 
 # 求出不同性别评分的均值
 sex_score_mean = df.groupby(["gender"])["score"].mean().to_dict()
@@ -131,8 +127,6 @@ data = list(zip(city_data, gender_data, gender_city_score_mean.score.values))
 
 
 
-from pyecharts import Bar3D
-
 bar3d = Bar3D("一线城市与二线城市的评分差异", width=650, height=450)
 
 range_color = ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf',
@@ -145,12 +139,6 @@ bar3d
 
 # ## 影评词云图
 # 再来看看通过大家的评论能够得到怎么样的云图。
-
-
-
-from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
-import jieba
-import matplotlib.pyplot as plt
 
 # 将分词后的结果以空格连接
 words = " ".join(jieba.cut(df.content.str.cat(sep=" ")))

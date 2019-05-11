@@ -1,10 +1,14 @@
+# -*- coding: utf-8 -*-
+"""
+@author: murufeng
+"""
+
 import requests
 import re
 from bs4 import BeautifulSoup
 
 
-
-print('正在豆瓣电影pipTOP 250中抓取数据')
+print('正在豆瓣电影TOP 250中抓取数据')
 
 for  page in range(10):
     #按页爬取数据
@@ -61,11 +65,7 @@ for  page in range(10):
        print(varStr)
        nums +=1
           
-
-              
-    
-print('抓取OK')
-
+print('数据爬取完成')
 
 
 #Python主方法

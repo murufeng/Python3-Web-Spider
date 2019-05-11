@@ -35,8 +35,6 @@ def spiderPic(html,keyword):
 if __name__=="__main__":
     print("hello")
 
-
-
     word = input("请输入你想要获取的图像的关键词:")
 
     result = requests.get('https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word='+word)
